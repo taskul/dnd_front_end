@@ -1,0 +1,28 @@
+.blue-highlighted-text {
+    font-weight: bold;
+    color: rgb(38, 125, 206);
+}
+
+.smaller-font {
+    font-size: 0.8rem;
+}
+
+.white-titles {
+    color: white;
+    font-size: 1rem;
+    margin: 5px;
+}
+
+.divider {
+    border-bottom: 2px solid #cfcfcf;
+    width: 100%;
+}
+
+.white-font {
+    color: white;
+}
+
+.large-bold {
+    font-size: 2rem;
+    font-weight: bold;
+}

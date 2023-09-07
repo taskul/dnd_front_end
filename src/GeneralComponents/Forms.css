@@ -1,0 +1,128 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 260px;
+    margin: 10px auto;
+    padding: 20px 30px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(38, 125, 206);
+    border: 2px solid white;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.form-label {
+    display: table-row;
+}
+
+.form-input-frame {
+    display: flex;
+    align-items: center;
+}
+
+.form-input {
+    margin: 10px 5px;
+    padding: 3.8px 10px;
+    border-radius: 10px;
+    border: solid 1px white;
+}
+
+.form-input-med {
+    margin: 10px 5px;
+    padding: 3.8px 10px;
+    width: 110px;
+    border-radius: 10px;
+    border: solid 1px white;
+}
+
+.form-input-short {
+    margin: 10px 5px;
+    padding: 3.8px 10px;
+    width: 80px;
+    border-radius: 10px;
+    border: solid 1px white;
+}
+
+.form-input-shortest {
+    margin: 10px 5px;
+    padding: 3.8px 10px;
+    width: 40px;
+    border-radius: 10px;
+    border: solid 1px white;
+}
+
+.form-textarea {
+    flex: 1 1 auto;
+    width: 280px;
+    height: 400px;
+    padding: 5px;
+    resize: none;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.form-input-error {
+    margin: 10px 5px;
+    padding: 3.8px 10px;
+    border-radius: 10px;
+    border: solid 1px red;
+}
+
+.form-error {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1rem;
+    color: rgb(252, 111, 111);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.error-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.form-container-modal {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 300;
+}
+
+.confirmation-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 200px;
+    height: auto;
+    margin: 5px;
+    background-color: rgb(38, 125, 206);
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    overflow: hidden;
+}
+
+.confirmation-modal-text {
+    margin: 20px;
+    color: white;
+}
+
+.selectField-avatar-icon-small {
+    width: 50px;
+    height: 50px;
+    align-self: center;
+}
+
+
+@media (min-width: 40rem) {}

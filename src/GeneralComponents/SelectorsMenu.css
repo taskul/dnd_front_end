@@ -1,0 +1,19 @@
+.selector-menu {
+    display: inline-block;
+}
+
+.selector-menu-label {
+    font-size: 0.9rem;
+    margin: 0px 5px;
+}
+
+.selector-menu-input {
+    margin: 0px 5px;
+    padding: 3.8px 5px;
+    border-radius: 10px;
+}
+
+.selector-menu-input:hover {
+    color: rgb(38, 125, 206);
+    cursor: pointer;
+}

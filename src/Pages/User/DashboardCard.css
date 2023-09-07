@@ -1,0 +1,61 @@
+.component-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 5px;
+    width: 180px;
+    height: auto;
+    background-color: rgb(38, 125, 206);
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.card-btn-holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.component-card-btn {
+    width: 49.5%;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.component-card-btn-one {
+    width: 100%;
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: black;
+    background-color: #D5FFD0;
+}
+
+.delete-btn:hover {
+    background-color: #ff8686
+}
+
+.card-text {
+    flex: 1 1 auto;
+    padding: 5px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.card-legend {
+    position: relative;
+    top: 7px;
+    left: 10px;
+    background-color: white;
+    color: rgb(38, 125, 206);
+    font-size: 0.8rem;
+    font-weight: bold;
+}

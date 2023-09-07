@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #dbdbdb;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1e1e1f;
+}

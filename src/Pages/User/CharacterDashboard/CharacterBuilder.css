@@ -1,0 +1,223 @@
+.character-builder-alignment {
+    display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+.character-builder-frame {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 94vw;
+    padding: 20px 30px 100px 30px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(38, 125, 206);
+    border: 2px solid white;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.character-builder-tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.character-tabs {
+    position: relative;
+    width: 100%;
+    left: 0px;
+    margin: 0px;
+
+}
+
+.character-tablinks {
+    min-width: 100px;
+    max-width: 200px;
+    margin-bottom: 8px;
+    padding: 10px 10px 5px 10px;
+    background-color: #dadada;
+    border-top: 1px solid #a7a7a7;
+    border-left: 1px solid #a7a7a7;
+    border-right: 1px solid #a7a7a7;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.character-tablinks.active {
+    background-color: white;
+}
+
+.character-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 0px;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+.character-section-halved {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 0px;
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+.character-subsection {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.character-subsection-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.inner-section-border {
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 1px;
+}
+
+.character-base-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: right;
+}
+
+.base-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats-modifier {
+    position: absolute;
+    width: 25px;
+    margin-top: 33px;
+    padding: 2px 5px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.avatar-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-frame {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+}
+
+.avatar-img-thumbnail {
+    width: 130px;
+    height: auto;
+    align-self: center;
+}
+
+.avatar-img {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.avatar-img.selected {
+    border: 2px solid rgb(38, 125, 206);
+    border-radius: 10px;
+}
+
+.character-library-frame {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 5px 100px 5px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 1;
+}
+
+.select-avatar-btn {
+    position: absolute;
+    margin-top: 115px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: rgb(38, 125, 206);
+    color: white;
+    cursor: pointer;
+}
+
+.select-avatar-btn:hover,
+.select-avatar-btn:active {
+    background-color: black;
+}
+
+/* desktop view */
+@media (min-width: 30rem) {
+    .character-builder-frame {
+        flex-direction: row;
+        width: 70vw;
+    }
+
+    .avatar-frame {
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+
+    .avatar-img {
+        width: 200px;
+        height: auto;
+    }
+
+    .character-section {
+        width: 100%;
+    }
+
+    .character-section-halved {
+        width: 50%;
+    }
+
+    .character-subsection-row {
+        flex-direction: row;
+    }
+
+    .character-subsection {
+        align-items: end;
+    }
+
+    .character-library-frame {
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        background-color: white;
+        padding: 10px 10px 10px 10px;
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+    .character-builder-frame {
+        padding: 20px 30px;
+    }
+}

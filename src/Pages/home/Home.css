@@ -1,0 +1,40 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.section-container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0px;
+}
+
+.section-half-container {
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+}
+
+.home-page-img {
+    width:100%;
+    height:100%;
+}
+
+@media (min-width: 40rem) {
+    .homepage-container {
+        align-items: center;
+    }
+
+    .section-container {
+        width: 60%;
+        flex-direction: row;
+    }
+    
+}

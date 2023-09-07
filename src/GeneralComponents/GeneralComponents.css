@@ -1,0 +1,71 @@
+.checkmark-frame {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 2;
+}
+
+.checkmark-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(38, 125, 206);
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: 2px solid white;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    transform: translateY(0px);
+    animation: slideIn 1.5s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+}
+
+/* desktop view */
+@media (min-width: 30rem) {
+    @keyframes slideIn {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        50% {
+            opacity: 1;
+            transform: translateY(60px);
+        }
+
+        80% {
+            opacity: 1;
+            transform: translateY(60px);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+    }
+}
