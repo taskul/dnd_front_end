@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Home from "../Pages/home/Home";
 import Login from "../Pages/User/Login";
@@ -10,9 +11,9 @@ import CampaignManager from "../Pages/User/CampaignDashboard/CampaignManager";
 import CharacterManager from "../Pages/User/CharacterDashboard/CharacterManager";
 import MapManager from "../Pages/User/MapsDashboard/MapManager";
 import FriendsManager from "../Pages/User/FriendsDashboard/FriendsManager";
+import ChatPage from "../Pages/Game/ChatPage";
 
-
-export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapName, setMapName}) {
+export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapName, setMapName, socket }) {
 
     return (
         <div>
@@ -20,12 +21,12 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/login" element={<Login authenticate={login} />} />
                 <Route exact path="/signup" element={<Signup signup={signup} />} />
-                <Route exact path="/mapbuilder" element={<MapBuilder 
+                <Route exact path="/mapbuilder" element={<MapBuilder
                     mapAssets={mapAssets}
                     setMapAssets={setMapAssets}
-                    mapName={mapName} 
+                    mapName={mapName}
                     setMapName={setMapName}
-                
+
                 />} />
                 {/* In a protected route we define a path that will be checked 
                     then ProtectedRoutes component checks to see if user is logged in
@@ -35,6 +36,16 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                     if there is a logged in user they can proceed to the protected route
                     otherwise they will be redirected to path specified in redirectToPath           
                 */}
+                {/* Game routes */}
+                <Route path="/chat/:chatId/:campaign_name" element={
+                    <ProtectedRoutes redirectToPath="/login">
+                        <ChatPage
+                            socket={socket}
+                        />
+                    </ProtectedRoutes>
+                } />
+
+                {/* Dashboard routes */}
                 <Route path="/dashboard" element={
                     <ProtectedRoutes redirectToPath="/login">
                         <Dashboard />
@@ -53,7 +64,8 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
 
                     <Route path="manage_campaigns" element={
                         <ProtectedRoutes redirectToPath="/login">
-                            <CampaignManager />
+                            <CampaignManager
+                            />
                         </ProtectedRoutes>
                     } />
 
@@ -75,7 +87,7 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                         </ProtectedRoutes>
                     } />
                 </Route>
-                
+
             </Routes>
         </div>
     )

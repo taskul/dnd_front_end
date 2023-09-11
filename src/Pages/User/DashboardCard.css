@@ -34,6 +34,24 @@
     cursor: pointer;
 }
 
+.protruding-btn {
+    background-color: #E08F62;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    text-shadow: 2px 2px rgb(0, 0, 0);
+    border-bottom: 4px solid rgb(38, 125, 206);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.protruding-btn:hover {
+    background: #00bd68;
+}
+
 .edit-btn:hover {
     color: black;
     background-color: #D5FFD0;

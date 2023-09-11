@@ -9,11 +9,16 @@ import AuthContext from './Context/AuthContext';
 import useLocalStorage from './hooks/useLocalStorage';
 import MapAssetsContext from "./Context/MapAssetsContext";
 
-import socketIO from 'socket.io-client';
-const socket = socketIO.connect('http://localhost:4000');
+import socketIO from "socket.io-client"
+
+const socket = socketIO.connect("http://localhost:4000")
+
+
+
 
 export const DND_TOKEN = 'dnd_token'
 export const GUILD_TOKEN = 'guild_token'
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState('');
@@ -99,6 +104,7 @@ function App() {
     setMapAssets({})
   }
 
+
   return (
     <div>
       <BrowserRouter>
@@ -119,7 +125,7 @@ function App() {
           </MapAssetsContext.Provider>
         </AuthContext.Provider>
       </BrowserRouter>
-    </div>
+    </div >
   )
 }
 

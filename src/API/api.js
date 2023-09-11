@@ -105,7 +105,6 @@ class User {
 
     // API call for this comes from GuildMembers.js located in Pages/User/GuildsDashboard
     static async getAllGuildMembers(guild_id, username) {
-        // const data = { guild_id, username };
         let response = await this.request(`guilds/members/${guild_id}/${username}`);
         return response;
     }
@@ -148,6 +147,7 @@ class User {
         return response;
     }
 
+
     // API call for this comes from CampaignManager.js located in Pages/User/CampaignDashboard
     static async deleteCampaign(campaign_id, username) {
         let data = {}
@@ -169,6 +169,8 @@ class User {
         return response;
     }
 
+
+
     //--------------------------------Character Info
 
     static async getCharactersInfo(char_id, username) {
@@ -188,6 +190,8 @@ class User {
         return response;
     }
 
+
+
     //--------------------------------Character Avatar
     static async getCharactersAvatar(char_id) {
         let response = await this.request(`characters/avatar/${char_id}`)
@@ -206,6 +210,9 @@ class User {
         return response;
     }
 
+
+
+
     //--------------------------------Character Base Stats
     static async createCharacterBaseStats(char_id, strength, dexterity, constitution, intelligence, wisdom, charisma, username) {
         const data = { char_id, strength, dexterity, constitution, intelligence, wisdom, charisma }
@@ -218,6 +225,9 @@ class User {
         let response = await this.request(`characters/patch/base_stats/${username}`, data, 'put');
         return response;
     }
+
+
+
 
     //--------------------------------Character health and armor
     static async createCharacterHealth(char_id, hit_points, temp_hit_points, armor_class, inspiration, initiative, speed, prof_bonus, hit_dice, username) {
@@ -232,6 +242,9 @@ class User {
         return response;
     }
 
+
+
+
     //--------------------------------Character Saving Throws
     static async createCharacterSavingThrows(char_id, str, dex, con, intel, wis, cha, username) {
         const data = { char_id, str, dex, con, intel, wis, cha }
@@ -244,6 +257,8 @@ class User {
         let response = await this.request(`characters/patch/saving_throws/${username}`, data, 'put');
         return response;
     }
+
+
 
 
     //--------------------------------Character Skills
@@ -263,6 +278,9 @@ class User {
         return response;
     }
 
+
+
+
     //--------------------------------Character Equipment
     static async createCharacterEquipment(char_id, copper, silver, electrum, gold, platinum, equipment, username) {
         const data = { char_id, copper, silver, electrum, gold, platinum, equipment }
@@ -277,6 +295,8 @@ class User {
         let response = await this.request(`characters/patch/equipment/${username}`, data, 'put');
         return response;
     }
+
+
 
     //--------------------------------Character Weapons
     static async createCharacterWeapons(char_id, weapon1, atk_bonus, damage_type, weapon2, atk_bonus2, damage_type2, weapon3, atk_bonus3, damage_type3, weapon4, atk_bonus4, damage_type4, weapon5, atk_bonus5, damage_type5, username) {
@@ -296,6 +316,8 @@ class User {
     }
 
 
+
+
     //--------------------------------Character Spells
     static async createCharacterSpells(char_id, spells, username) {
         const data = { char_id, spells }
@@ -309,6 +331,8 @@ class User {
         return response;
     }
 
+
+
     //--------------------------------Character proficiencies
     static async createCharacterProficiencies(char_id, proficiencies, username) {
         const data = { char_id, proficiencies }
@@ -321,10 +345,37 @@ class User {
         let response = await this.request(`characters/patch/proficiencies/${username}`, data, 'put');
         return response;
     }
-
+    //--------------------------------Delete Characgter
     static async deleteCharacter(char_id, username) {
         const data = {};
         let response = await this.request(`characters/${char_id}/${username}`, data, 'delete');
+        return response;
+    }
+
+
+
+    //--------------------------------Game Chat rooms
+    static async createGameRoom(campaign_name, campaign_id, username) {
+        const data = { campaign_name, campaign_id }
+        let response = await this.request(`game/create/${username}`, data, 'post');
+        return response;
+    }
+
+    static async getGameRoom(campaign_name, campaign_id, username) {
+        let response = await this.request(`game/${campaign_id}/${campaign_name}/${username}`);
+        return response;
+    }
+
+
+    //--------------------------------Game messages
+    static async createMessage(chat_id, username, message) {
+        const data = { message }
+        let response = await this.request(`game/msg/create/${chat_id}/${username}`, data, 'post');
+        return response;
+    }
+
+    static async getMessages(chat_id, campaign_name, username) {
+        let response = await this.request(`game/msg/${chat_id}/${campaign_name}/${username}`);
         return response;
     }
 };

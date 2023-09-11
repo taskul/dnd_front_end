@@ -1,7 +1,6 @@
 import { useEffect, useContext, useState } from "react"
 import User from "../../../API/api"
 import AuthContext from "../../../Context/AuthContext"
-import { NavLink } from "react-router-dom";
 import "../Dashboard.css"
 import "../../../GeneralComponents/Buttons.css"
 import "../../../GeneralComponents/Loaders.css";
@@ -9,6 +8,7 @@ import "../../../GeneralComponents/TextStyles.css";
 import CreateCampaignModal from "./CreateCampaignModal";
 import CampaignCard from "./CampaignCard";
 import ConfirmationModal from "../../../GeneralComponents/ConfirmationModal";
+import AddPlayers from "./AddPlayers";
 
 export default function CampaignManager() {
     const [existingCampaigns, setExistingCampaigns] = useState([]);
@@ -22,6 +22,14 @@ export default function CampaignManager() {
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [deleteCampaignId, setDeleteCampaignId] = useState();
 
+    // adding Players
+    const [showAddPlayers, setShowAddPlayers] = useState(false);
+    const [guildMembers, setGuildMembers] = useState([]);
+    // holds the campaign id that will be used to add new players
+    const [addingPlayersCampaign, setAddingPlayersComapin] = useState();
+    const [guildIdForCampaign, setGuildIdForCampaign] = useState();
+
+
     useEffect(() => {
         async function getGuildsInfo() {
             User.token = token;
@@ -31,7 +39,6 @@ export default function CampaignManager() {
             setGuilds(guilds => ([
                 ...response
             ]))
-
             setExistingCampaigns(existingCampaigns => ([
                 ...campaigns
             ]))
@@ -50,6 +57,20 @@ export default function CampaignManager() {
         const { campaign_id, campaign_name } = response.newCampaign;
         const newMember = await User.addCampaignMember(campaign_id, guid_id, currentUser, true)
         setAddedCampaign(response)
+    }
+
+    // adding Playsers
+    const addingPlayers = (users, campaign_id, guid_id) => {
+        setGuildMembers(users)
+        setAddingPlayersComapin(campaign_id)
+        setGuildIdForCampaign(guid_id)
+        setShowAddPlayers(!showAddPlayers)
+    }
+
+    const closeAddingPlayersModal = () => {
+        setShowAddPlayers(!showAddPlayers)
+        setAddingPlayersComapin(null)
+        setGuildMembers([])
     }
 
     // Managing deleting campaign
@@ -74,6 +95,19 @@ export default function CampaignManager() {
 
     return (
         <div>
+            {/* Show add new players modal */}
+            {showAddPlayers
+                ?
+                <AddPlayers
+                    addingPlayers={addingPlayers}
+                    closeModal={closeAddingPlayersModal}
+                    guildMembers={guildMembers}
+                    campaign_id={addingPlayersCampaign}
+                    guid_id={guildIdForCampaign}
+                />
+                :
+                null
+            }
 
             {showNewCampaignModal
                 ?
@@ -131,6 +165,7 @@ export default function CampaignManager() {
                                 campaign_id={data.campaign_id}
                                 campaign_name={data.campaign_name}
                                 deleteCampaign={alertAboutDeleting}
+                                addingPlayers={addingPlayers}
                             />
                         )
                         :
