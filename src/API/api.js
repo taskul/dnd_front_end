@@ -357,12 +357,12 @@ class User {
     //--------------------------------Game Chat rooms
     static async createGameRoom(campaign_name, campaign_id, username) {
         const data = { campaign_name, campaign_id }
-        let response = await this.request(`game/create/${username}`, data, 'post');
+        let response = await this.request(`game/chat/create/${username}`, data, 'post');
         return response;
     }
 
     static async getGameRoom(campaign_name, campaign_id, username) {
-        let response = await this.request(`game/${campaign_id}/${campaign_name}/${username}`);
+        let response = await this.request(`game/chat/${campaign_id}/${campaign_name}/${username}`);
         return response;
     }
 
@@ -376,6 +376,24 @@ class User {
 
     static async getMessages(chat_id, campaign_name, username) {
         let response = await this.request(`game/msg/${chat_id}/${campaign_name}/${username}`);
+        return response;
+    }
+
+    //--------------------------------Game characters
+    static async createChatCharacter(chat_id, char_id, char_name, username) {
+        const data = { char_name }
+        let response = await this.request(`game/char/create/${chat_id}/${char_id}/${username}`, data, 'post');
+        return response;
+    }
+
+    static async updateChatCharacter(chat_id, char_id, char_name, username) {
+        const data = { char_name }
+        let response = await this.request(`game/char/patch/${chat_id}/${char_id}/${username}`, data, 'put');
+        return response;
+    }
+
+    static async getChatCharacter(chat_id, username) {
+        let response = await this.request(`game/char/${chat_id}/${username}`);
         return response;
     }
 };

@@ -56,6 +56,11 @@
   cursor: pointer;
 }
 
+.exit-button-at-bottom {
+  position: absolute;
+  bottom: 20px;
+}
+
 
 .button-link {
   text-decoration: none;

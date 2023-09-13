@@ -16,7 +16,6 @@ import User from '../API/api.js'
 
 // styling for the Canvas
 export const Container = ({ assets, setAssets, mapName }) => {
-  // const [assets, setAssets] = useState()
   const [baseTilesArr, setBaseTileArr] = useState([1, 8])
   const [displaySaveMap, setDisplaySaveMap] = useState(false)
   const { currentUser, token } = useContext(AuthContext);

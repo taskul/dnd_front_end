@@ -23,6 +23,30 @@
   box-shadow: -2px -2px 1px 0px #DDD, 2px 2px 1px 0px rgba(0, 0, 0, 0.30);
 }
 
+.map-display-chat {
+  position: absolute;
+  display: inline-block;
+  top: 9%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  padding: 5px;
+  margin: 20px 0px 220px 0px;
+  border-radius: 10px;
+  background-color: rgb(194, 194, 194);
+  box-shadow: -2px -2px 1px 0px #DDD, 2px 2px 1px 0px rgba(0, 0, 0, 0.30);
+  z-index: 20;
+}
+
+.map-container-chat {
+  position: relative;
+  width: 806px;
+  height: 506px;
+  border: 1px solid black;
+  margin: 12px;
+  padding: 0px;
+  background-color: rgb(238, 238, 238)
+}
+
 .warning-message {
   color: brown;
   font-size: 0.7rem;
@@ -42,6 +66,34 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.30);
   z-index: 100;
+}
+
+
+/* in chat map selection */
+.select-map-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.select-map-container:hover {
+  border: 1px solid rgb(38, 125, 206);
+  border-radius: 10px;
+}
+
+.maps-in-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.maps-in-chat-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* desktop view */

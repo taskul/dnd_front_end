@@ -1,14 +1,17 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
 import "./Chat.css"
+import { v4 as uuidv4 } from 'uuid';
 
-const ChatBody = ({ messages, typingStatus, lastMessageRef, user, campaign_name }) => {
+const ChatBody = ({ socket, room, messages, typingStatus, lastMessageRef, user, campaign_name }) => {
     const navigate = useNavigate()
 
 
     const handleLeaveChat = () => {
+        socket.emit('leave room', room);
         navigate("/dashboard")
     }
+
 
     return (
         <>
@@ -20,20 +23,33 @@ const ChatBody = ({ messages, typingStatus, lastMessageRef, user, campaign_name 
 
             <div ref={lastMessageRef} className='message__container'>
                 {messages.map(message => (
-
                     message.username === user ? (
-                        <div className="message__chats" key={message.id}>
+
+                        < div className="message__chats" key={uuidv4()} >
                             <p className='sender__name'>You</p>
-                            <div className='message__sender'>
-                                <p>{message.text || message.message_text}</p>
+                            <div
+                                className={
+                                    message.message.startsWith("Event:")
+                                        ?
+                                        'message__event_sender'
+                                        :
+                                        'message__sender'}
+                            >
+                                <p>{message.message}</p>
                             </div>
+                            {console.log("MESSAGE", message)}
                         </div>
                     ) : (
-                        <div className="message__chats" key={message.id}>
+                        <div className="message__chats" key={uuidv4()}>
                             <p>{message.username}</p>
-                            <div className='message__recipient'>
-                                <p>{message.text || message.message_text}</p>
-                                {console.log(message.message_text)}
+                            <div className={
+                                message.message.startsWith("Event:")
+                                    ?
+                                    'message__event_recipient'
+                                    :
+                                    'message__recipient'}
+                            >
+                                <p>{message.message}</p>
                             </div>
                         </div>
                     )
@@ -43,7 +59,7 @@ const ChatBody = ({ messages, typingStatus, lastMessageRef, user, campaign_name 
                     <p>{typingStatus}</p>
                 </div>
                 <div className="chat-message last-message" />
-            </div>
+            </div >
         </>
     )
 }

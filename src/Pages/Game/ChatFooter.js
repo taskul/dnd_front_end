@@ -5,7 +5,7 @@ import "../../GeneralComponents/Forms.css"
 import AuthContext from "../../Context/AuthContext"
 import User from "../../API/api"
 
-const ChatFooter = ({ socket, user, chat_id }) => {
+const ChatFooter = ({ socket, chat_id, room }) => {
     const { currentUser, token } = useContext(AuthContext)
     const [message, setMessage] = useState("")
     const handleTyping = () => socket.emit("typing", `${localStorage.getItem("userName")} is typing`)
@@ -13,7 +13,10 @@ const ChatFooter = ({ socket, user, chat_id }) => {
     const handleSendMessage = async (e) => {
         e.preventDefault()
         if (message.trim() !== '') {
-            socket.emit('chat message', { message, user });
+            // socket.emit('chat message', { message, user });
+            // setMessage('');
+            let username = currentUser;
+            socket.emit('chat message', { message, username, room });
             setMessage('');
             User.token = token;
             const response = await User.createMessage(chat_id, currentUser, message)

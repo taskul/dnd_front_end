@@ -23,6 +23,11 @@
     animation: slideIn 1.5s ease-in-out forwards;
 }
 
+.divider-line {
+    border-radius: 1px solid black;
+    width: 100%;
+}
+
 @keyframes slideIn {
     0% {
         opacity: 0;

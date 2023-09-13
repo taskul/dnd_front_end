@@ -1,22 +1,26 @@
 .character-builder-alignment {
-    display: block;
+    display: flex;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 1;
+    width: 100%;
+    z-index: 0;
 }
 
 .character-builder-frame {
+    position: absolute;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     width: 94vw;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%, 0%);
     padding: 20px 30px 100px 30px;
     border-radius: 20px;
     color: white;
     background-color: rgb(38, 125, 206);
     border: 2px solid white;
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.25);
+    z-index: 1;
 }
 
 .character-builder-tabs-container {
@@ -120,6 +124,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5px;
 }
 
 .avatar-frame {
@@ -147,15 +152,22 @@
     border-radius: 10px;
 }
 
+.small-avatar {
+    width: 50px;
+    height: 50px;
+}
+
 .character-library-frame {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     padding: 10px 5px 100px 5px;
-    width: 300px;
     border-radius: 10px;
+    border: 1px solid black;
     background-color: white;
-    z-index: 1;
+    z-index: 10;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 .select-avatar-btn {
@@ -173,10 +185,38 @@
     background-color: black;
 }
 
+.center-content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 290px;
+    left: 15%;
+    width: 70%;
+    height: auto;
+    z-index: 10;
+}
+
+/* used in character sheet that is not editable */
+.character-info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 3px;
+}
+
 /* desktop view */
 @media (min-width: 30rem) {
+    .character-builder-alignment {
+        z-index: 10;
+    }
+
     .character-builder-frame {
         flex-direction: row;
+        left: 55%;
         width: 70vw;
     }
 
@@ -210,7 +250,6 @@
         position: absolute;
         display: flex;
         flex-wrap: wrap;
-        width: 80%;
         background-color: white;
         padding: 10px 10px 10px 10px;
         border-radius: 10px;
@@ -220,4 +259,9 @@
     .character-builder-frame {
         padding: 20px 30px;
     }
+
+    .character-info {
+        width: 30%;
+    }
+
 }

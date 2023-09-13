@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Home from "../Pages/home/Home";
 import Login from "../Pages/User/Login";
@@ -13,7 +12,7 @@ import MapManager from "../Pages/User/MapsDashboard/MapManager";
 import FriendsManager from "../Pages/User/FriendsDashboard/FriendsManager";
 import ChatPage from "../Pages/Game/ChatPage";
 
-export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapName, setMapName, socket }) {
+export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapName, setMapName }) {
 
     return (
         <div>
@@ -40,7 +39,6 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                 <Route path="/chat/:chatId/:campaign_name" element={
                     <ProtectedRoutes redirectToPath="/login">
                         <ChatPage
-                            socket={socket}
                         />
                     </ProtectedRoutes>
                 } />

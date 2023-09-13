@@ -9,12 +9,6 @@ import AuthContext from './Context/AuthContext';
 import useLocalStorage from './hooks/useLocalStorage';
 import MapAssetsContext from "./Context/MapAssetsContext";
 
-import socketIO from "socket.io-client"
-
-const socket = socketIO.connect("http://localhost:4000")
-
-
-
 
 export const DND_TOKEN = 'dnd_token'
 export const GUILD_TOKEN = 'guild_token'
@@ -120,7 +114,6 @@ function App() {
               setMapAssets={setMapAssets}
               mapName={mapName}
               setMapName={setMapName}
-              socket={socket}
             />
           </MapAssetsContext.Provider>
         </AuthContext.Provider>

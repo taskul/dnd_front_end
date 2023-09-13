@@ -80,87 +80,86 @@ export default function CharacterBuilder({ closeModal, char_id, char_name, charT
     char_name = char_name ? char_name : charToEditName;
 
     return (
-        <div className="character-builder-alignment">
-            <div className="character-builder-frame">
-                {/* Exit button */}
-                <div className="exit-button-holder">
-                    <button type="button" className="exit-modal" onClick={closeSelf}>X</button>
-                </div>
-                <p className="white-titles">Character Name: {char_name}</p>
-                {/* Tabs */}
-                <div className="character-tabs">
-                    <button className={baseStatsTab ? `character-tablinks active` : "character-tablinks"} id="tab-stats" onClick={changeTabState}>Base Info</button>
-                    <button className={appearenceTab ? `character-tablinks active` : "character-tablinks"} id="tab-appearence" onClick={changeTabState}>Attacks/Spells</button>
-                </div>
-                {baseStatsTab ?
-                    <div className="character-builder-tabs-container">
-                        {showAvatarSelector
-                            ?
-                            <AvatarLibrary
-                                closeModal={openAvatarSelector}
-                                avatar={avatar}
-                                setAvatar={setAvatar}
-                                char_id={char_id}
-                                setUpdatedAvatar={setUpdatedAvatar}
-                            />
-                            :
-                            null
-                        }
-                        {/* Displays user's character avatar
+
+        <div className="character-builder-frame">
+            {/* Exit button */}
+            <div className="exit-button-holder">
+                <button type="button" className="exit-modal" onClick={closeSelf}>X</button>
+            </div>
+            <p className="white-titles">Character Name: {char_name}</p>
+            {/* Tabs */}
+            <div className="character-tabs">
+                <button className={baseStatsTab ? `character-tablinks active` : "character-tablinks"} id="tab-stats" onClick={changeTabState}>Base Info</button>
+                <button className={appearenceTab ? `character-tablinks active` : "character-tablinks"} id="tab-appearence" onClick={changeTabState}>Attacks/Spells</button>
+            </div>
+            {baseStatsTab ?
+                <div className="character-builder-tabs-container">
+                    {showAvatarSelector
+                        ?
+                        <AvatarLibrary
+                            closeModal={openAvatarSelector}
+                            avatar={avatar}
+                            setAvatar={setAvatar}
+                            char_id={char_id}
+                            setUpdatedAvatar={setUpdatedAvatar}
+                        />
+                        :
+                        null
+                    }
+                    {/* Displays user's character avatar
                         Clicking on it opens the AvatarLibrary to chose a new avatar
                     */}
-                        <AvatarSelector
-                            openAvatarSelector={openAvatarSelector}
-                            avatarImg={avatar}
-                            char_id={char_id}
-                        />
-                        <HitPointsArmorClass
-                            char_id={char_id}
-                            health={health}
-                        />
-                        <CharacterBaseInfo
-                            char_id={char_id}
-                            baseInfo={baseInfo}
-                        />
-                        <SavingThrows
-                            char_id={char_id}
-                            savingThrows={savingThrows}
-                        />
-                        <CharacterBaseStats
-                            char_id={char_id}
-                            baseStats={baseStats}
-                        />
-                        <Skills
-                            char_id={char_id}
-                            skills={skills}
-                        />
-                        <Equipment
-                            char_id={char_id}
-                            charEquipment={charEquipment}
-                        />
-                    </div>
-                    :
-                    null}
+                    <AvatarSelector
+                        openAvatarSelector={openAvatarSelector}
+                        avatarImg={avatar}
+                        char_id={char_id}
+                    />
+                    <HitPointsArmorClass
+                        char_id={char_id}
+                        health={health}
+                    />
+                    <CharacterBaseInfo
+                        char_id={char_id}
+                        baseInfo={baseInfo}
+                    />
+                    <SavingThrows
+                        char_id={char_id}
+                        savingThrows={savingThrows}
+                    />
+                    <CharacterBaseStats
+                        char_id={char_id}
+                        baseStats={baseStats}
+                    />
+                    <Skills
+                        char_id={char_id}
+                        skills={skills}
+                    />
+                    <Equipment
+                        char_id={char_id}
+                        charEquipment={charEquipment}
+                    />
+                </div>
+                :
+                null}
 
-                {appearenceTab ?
+            {appearenceTab ?
 
-                    <div className="character-builder-tabs-container">
-                        <Attacks
-                            char_id={char_id}
-                            weapons={weapons}
-                        />
-                        <Spells
-                            char_id={char_id}
-                            spells={spells}
-                        />
-                        <Proficiencies
-                            char_id={char_id}
-                            proficiencies={proficiencies}
-                        />
-                    </div>
-                    :
-                    null}
-            </div>
+                <div className="character-builder-tabs-container">
+                    <Attacks
+                        char_id={char_id}
+                        weapons={weapons}
+                    />
+                    <Spells
+                        char_id={char_id}
+                        spells={spells}
+                    />
+                    <Proficiencies
+                        char_id={char_id}
+                        proficiencies={proficiencies}
+                    />
+                </div>
+                :
+                null}
         </div>
     )
 }

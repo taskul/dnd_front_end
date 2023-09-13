@@ -11,6 +11,11 @@
     color: white;
     font-size: 1rem;
     margin: 5px;
+    white-space: pre-line
+}
+
+.large-font {
+    font-size: 1.5rem;
 }
 
 .divider {
@@ -25,4 +30,8 @@
 .large-bold {
     font-size: 2rem;
     font-weight: bold;
+}
+
+.underlined {
+    border-bottom: 1px solid rgb(224, 224, 224);
 }

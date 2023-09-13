@@ -34,6 +34,19 @@
     cursor: pointer;
 }
 
+.dashboard-btn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
 .dashboard-icon-btn:hover {
     color: rgb(38, 125, 206);
 }
@@ -44,7 +57,7 @@
 
 .dahsboard-btn-link {
     text-decoration: none;
-    width: 18%;
+    width: 20%;
     margin: 2px;
     padding: 2px;
     height: auto;
@@ -128,6 +141,8 @@
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
+
+
 /* desktop view */
 @media (min-width: 40rem) {
     .dashboard-side-menu {
@@ -137,7 +152,7 @@
         max-width: 180px;
         min-width: 180px;
         position: static;
-        height: 100vh;
+        height: 91vh;
     }
 
     .dahsboard-btn-link {
@@ -170,5 +185,9 @@
         left: 50%;
         transform: translate(-50%, -20%);
         z-index: 300;
+    }
+
+    .dashboard-btn {
+        padding: 10px 20px;
     }
 }

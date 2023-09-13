@@ -80,39 +80,33 @@ export default function CharacterBaseInfo({ char_id, baseInfo }) {
                 onSubmit={formik.handleSubmit}
             >
                 <div className="character-subsection">
-                    <div className="form-input-frame">
-                        <input
-                            type="text"
-                            id="race"
-                            name="race"
-                            placeholder="Race"
-                            className="form-input"
-                            value={formik.values.race}
-                            onChange={formik.handleChange}
-                        />
-                    </div>
-                    <div className="form-input-frame">
-                        <input
-                            type="text"
-                            id="alignment"
-                            name="alignment"
-                            placeholder="Alignment"
-                            className="form-input"
-                            value={formik.values.alignment}
-                            onChange={formik.handleChange}
-                        />
-                    </div>
-                    <div className="form-input-frame">
-                        <input
-                            type="text"
-                            id="charClass"
-                            name="charClass"
-                            placeholder="Class"
-                            className="form-input"
-                            value={formik.values.charClass}
-                            onChange={formik.handleChange}
-                        />
-                    </div>
+                    <input
+                        type="text"
+                        id="race"
+                        name="race"
+                        placeholder="Race"
+                        className="form-input"
+                        value={formik.values.race}
+                        onChange={formik.handleChange}
+                    />
+                    <input
+                        type="text"
+                        id="alignment"
+                        name="alignment"
+                        placeholder="Alignment"
+                        className="form-input"
+                        value={formik.values.alignment}
+                        onChange={formik.handleChange}
+                    />
+                    <input
+                        type="text"
+                        id="charClass"
+                        name="charClass"
+                        placeholder="Class"
+                        className="form-input"
+                        value={formik.values.charClass}
+                        onChange={formik.handleChange}
+                    />
                 </div>
                 <div className="character-subsection">
                     <div className="form-input-frame">

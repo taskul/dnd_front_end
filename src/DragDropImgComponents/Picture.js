@@ -4,27 +4,27 @@ import { useState, memo, useCallback } from 'react'
 import "./Picture.css"
 
 export const Picture = memo(function Picture(
-        {
-            id, url, title, preview, top,
-            left, rotation, zIndex, onMap,
-            rotateImage, deleteImage
-        }) 
-        {
+    {
+        id, url, title, preview, top,
+        left, rotation, zIndex, onMap,
+        rotateImage, deleteImage, position
+    }) {
     const [imageOptions, setImageOptions] = useState(false);
     // we can set type to anything we want image, picture, photo
     // we also don't have to use collect function, but we can use it if we want to keep track of isDragging
     // isDragging returns true/false
-    const [{isDragging}, drag] = useDrag(() => ({
+    const [{ isDragging }, drag] = useDrag(() => ({
         type: ItemTypes.BOX,
-        item: {id: id, 
-                url: url,
-                title: title,
-                top: top,
-                left: left,
-                rotation: rotation,
-                zIndex: zIndex,
-                onMap: onMap
-                },
+        item: {
+            id: id,
+            url: url,
+            title: title,
+            top: top,
+            left: left,
+            rotation: rotation,
+            zIndex: zIndex,
+            onMap: onMap
+        },
         collect: (monitor) => ({
             isDragging: monitor.isDragging()
         })
@@ -34,7 +34,7 @@ export const Picture = memo(function Picture(
         if (onMap) {
             if (e.target.className === "mapImage") {
                 setImageOptions(true);
-            }  
+            }
         }
     }, [onMap])
 
@@ -42,11 +42,11 @@ export const Picture = memo(function Picture(
         if (onMap) {
             if (e.target.className === "mapImage") {
                 setImageOptions(false);
-            }  
+            }
         }
     }, [onMap])
 
-    const rotatePicture = useCallback(() =>{
+    const rotatePicture = useCallback(() => {
         let angle = rotation + 90;
         rotateImage(id, angle)
     })
@@ -62,33 +62,33 @@ export const Picture = memo(function Picture(
             onMouseLeave={hideImageOptions}
             className="mapImage"
         >
-            {imageOptions ? 
+            {imageOptions ?
                 <div className="imageOptions">
-                <button 
-                    className="imageOptionsBtn"
-                    onClick={rotatePicture}
-                >⭯</button>
-                <button 
-                    className="imageOptionsBtn"
-                    onClick={deletePicture}>X</button>
+                    <button
+                        className="imageOptionsBtn"
+                        onClick={rotatePicture}
+                    >⭯</button>
+                    <button
+                        className="imageOptionsBtn"
+                        onClick={deletePicture}>X</button>
                 </div>
                 :
                 ""
             }
-        <img 
-            // we need to indicate which element we want to drag
-            ref={drag}
-            className="mapImage"
-            src={url}
-            alt={title} 
-            width="50px" 
-            height="50px" 
-            style={{cursor: 'move', transform:`rotate(${rotation}deg)`, zIndex}}
-            role={preview ? 'BoxPreview' : 'Box'}
-            data-effect-allowed="copy"
-        />
+            <img
+                // we need to indicate which element we want to drag
+                ref={drag}
+                className="mapImage"
+                src={url}
+                alt={title}
+                width="50px"
+                height="50px"
+                style={{ position, cursor: 'move', transform: `rotate(${rotation}deg)`, zIndex, top, left }}
+                role={preview ? 'BoxPreview' : 'Box'}
+                data-effect-allowed="copy"
+            />
         </div>
-        
+
     )
 })
 
