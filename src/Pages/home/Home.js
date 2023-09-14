@@ -1,9 +1,31 @@
 import "./Home.css"
 import "../User/Dashboard.css"
+import { useState } from "react"
+import LargeImg from "./LargeImg";
 
 export default function Home() {
+    const [showLargeImg, setShowLargeImg] = useState(false);
+    const [imgUrl, setImgUrl] = useState()
+    const [imgAlt, setImgAlt] = useState()
+
+    const openLargeImg = (url, alt) => {
+        setImgUrl(url)
+        setImgAlt(alt)
+        setShowLargeImg(!showLargeImg)
+    }
+
+    const closeLargeImg = () => {
+        setShowLargeImg(!showLargeImg)
+    }
+
     return (
         <div className="homepage-container">
+            {showLargeImg && <LargeImg
+                url={imgUrl}
+                alt={imgAlt}
+                closeModal={closeLargeImg}
+            />
+            }
             <div className="section-container">
                 <div className="section-half-container">
                     <img
@@ -26,9 +48,11 @@ export default function Home() {
 
                 <div className="section-half-container">
                     <img
-                        className="home-page-img"
-                        src={process.env.PUBLIC_URL + "dnd_map_builder.jpg"}
+                        className="home-page-img expandable-img"
+                        src={"dnd_map_builder.jpg"}
                         alt="building an 8 bit style map example"
+
+                        onClick={() => openLargeImg(process.env.PUBLIC_URL + "dnd_map_builder.jpg", "example of a map builder ")}
                     />
                 </div>
             </div>
@@ -36,9 +60,11 @@ export default function Home() {
 
                 <div className="section-half-container">
                     <img
-                        className="home-page-img"
+                        className="home-page-img expandable-img"
                         src={process.env.PUBLIC_URL + "character_sheet.jpg"}
-                        alt="building an 8 bit style map example"
+                        alt="Character sheet example"
+
+                        onClick={() => openLargeImg(process.env.PUBLIC_URL + "character_sheet.jpg", "Character sheet example ")}
                     />
                 </div>
                 <div className="section-half-container">
@@ -55,9 +81,11 @@ export default function Home() {
 
                 <div className="section-half-container">
                     <img
-                        className="home-page-img"
+                        className="home-page-img expandable-img"
                         src={process.env.PUBLIC_URL + "chat.jpg"}
-                        alt="building an 8 bit style map example"
+                        alt="example of game chat"
+
+                        onClick={() => openLargeImg(process.env.PUBLIC_URL + "chat.jpg", "example of game chat")}
                     />
                 </div>
             </div>
