@@ -8,7 +8,9 @@ import AuthContext from "../../Context/AuthContext"
 import User from "../../API/api"
 import socketIO from "socket.io-client"
 
-const socket = socketIO.connect("http://localhost:4000")
+const socket = socketIO.connect("http://localhost:3001")
+
+// var socket = socketIO.connect('http://yourDomain:port', { transports: ['websocket', 'polling', 'flashsocket'] });
 
 
 

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Home from "../Pages/home/Home";
 import Login from "../Pages/User/Login";
@@ -85,7 +85,7 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                         </ProtectedRoutes>
                     } />
                 </Route>
-
+                <Route index element={<Navigate to="/" />} />
             </Routes>
         </div>
     )
