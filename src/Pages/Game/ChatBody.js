@@ -37,7 +37,6 @@ const ChatBody = ({ socket, room, messages, typingStatus, lastMessageRef, user, 
                             >
                                 <p>{message.message}</p>
                             </div>
-                            {console.log("MESSAGE", message)}
                         </div>
                     ) : (
                         <div className="message__chats" key={uuidv4()}>

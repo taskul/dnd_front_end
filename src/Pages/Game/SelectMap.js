@@ -17,7 +17,6 @@ export default function SelectMap({ availableMaps, closeModal, gameMaps, room, s
         if (map_id) {
             User.token = token;
             const response = await User.getMapByID(map_id, currentUser)
-            console.log(response)
             setMapAssets(response.mapAssets.map_assets)
             setTimeout(() => {
                 openMap()
