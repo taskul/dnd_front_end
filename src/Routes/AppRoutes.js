@@ -11,6 +11,7 @@ import CharacterManager from "../Pages/User/CharacterDashboard/CharacterManager"
 import MapManager from "../Pages/User/MapsDashboard/MapManager";
 import FriendsManager from "../Pages/User/FriendsDashboard/FriendsManager";
 import ChatPage from "../Pages/Game/ChatPage";
+import NotFound from "./NotFound";
 
 export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapName, setMapName }) {
 
@@ -85,7 +86,7 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                         </ProtectedRoutes>
                     } />
                 </Route>
-                <Route index element={<Navigate to="/" />} />
+                <Route path='*' element={<NotFound />} />
             </Routes>
         </div>
     )
