@@ -1,3 +1,7 @@
+![image of a dragon](public/dragon_resized.png)
+
+# DND DEN - a live chat based dungeon and dragons game.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,40 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Packages
+### `npm install` or `npm i` to install packages from package.json file
+    "axios": "^1.4.0" - used for making API calls
+    "dotenv": "^16.3.1" - used to accessing environment variables
+    "formik": "^2.4.3" - helps to manage react forms
+    "immutability-helper": "^3.1.1" - used in Map Builder for updating objects quickly
+    "jwt-decode": "^3.1.2" - used for JWT token management for authentication
+    "react": "^18.2.0" - react front end frame work
+    "react-dnd": "^16.0.1" - drag and drop library that is used in Map Builder 
+    "react-dnd-html5-backend": "^16.0.1" - drag and drop library that is used in Map Builder
+    "react-dom": "^18.2.0" - react DOM manipulation
+    "react-router-dom": "^6.14.2" - react router, handles all routes for static react page
+    "react-scripts": "5.0.1" - this package includes scripts and configuration used by Create React App.
+    "socket.io-client": "^4.5.1" - used for web socket management for live chat
+    "uuid": "^9.0.0" - creates unique id that are used to create "key" for certain components in the application
+
+# Project structure
+- API directory - has api file that manages all API calls from frontend to backend.
+- Context directy - has AuthContext used for all user authentication and API calls. Also has MapAssetsContext which helps to load saved maps and store map tiles information that can be shared across routes
+- DragDropImgComponents directory - This is where all of the components and functionality for Map Builder are stored.
+- GeneralComponenets directory - stores CSS files that are used by multiple components, and it stores some components that are reused accross application.
+- Hooks directory - stores useLocalStorage and useToken hooks
+- MapBuilder directory - stores the map builder menu components and CSS styles.
+- Pages directory stores all user dashboard routes, menus and game chat components
+  - Game directory - stores all of the game chat functionality, socket connections and chat components
+  - home directory - home page components
+  - User directory:
+    - CampaignDashbaord - all components related to managing game campains: create campaign, add players to campaign, delete campaign
+    - CharacterDashboard - all components related to managing character builder: create character, change avatar, update character stats/info, delete characer
+    - DashboardSideMenu - all components related to managing user dashboard menu which has buttons for campaigns, guilds, character, maps
+    - GuildsDashboard - all components related to managing game guilds: create guilds, add players to guilds, delete guilds
+    - MapsDashboard - all components related to managing game maps: create maps, save maps, delete maps
+- Routes directory - manages all of the application routes.
+
+
+
