@@ -1,5 +1,4 @@
 import AccordionItem from "./AccordionItem"
-import { Container } from "../../DragDropImgComponents/SortableComponents/ItemsContainer"
 import images from "../../ImageData"
 import "./TabsMenu.css"
 import "./Layers.css"

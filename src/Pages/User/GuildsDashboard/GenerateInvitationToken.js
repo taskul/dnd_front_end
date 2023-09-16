@@ -5,7 +5,7 @@ import "../../../GeneralComponents/TextStyles.css"
 import User from '../../../API/api';
 import AuthContext from '../../../Context/AuthContext';
 
-export default function GenerateInvitationToken({guildToken, guildId}) {
+export default function GenerateInvitationToken({ guildToken, guildId }) {
     const [invitationLinkState, setInvitationLinkState] = useState();
     const [confirmationMessage, setConfirmationMessage] = useState(false);
     const { currentUser, token } = useContext(AuthContext)
@@ -13,23 +13,24 @@ export default function GenerateInvitationToken({guildToken, guildId}) {
     let baseUrl;
     let invitationLink;
 
-    if (window.location.hostname === 'localhost' || window.location.hostname === "127.0.0.1") {
-        baseUrl = `http://localhost:3000/signup?token=`
-    }
+    // if (window.location.hostname === 'localhost' || window.location.hostname === "127.0.0.1") {
+    //     baseUrl = `http://localhost:3000/signup?token=`
+    // }
+    const BASE_URL = process.env.REACT_APP_BASE_URL
 
     // if user already created a token for the guild, then parent component will get that token and the token will be displayed to user to copy and send out again.
-    invitationLink = guildToken ? `${baseUrl}${guildToken}` : null;
+    invitationLink = guildToken ? `${BASE_URL}/signup?token=${guildToken}` : null;
 
     const generateToken = async () => {
         let newToken = uuidv4();
-        invitationLink = `${baseUrl}${newToken}`;
+        invitationLink = `${BASE_URL}/signup?token=${newToken}`;
 
         // create a database entry with an invitation token
         const response = await User.createGuildToken(newToken, guildId, currentUser)
         setInvitationLinkState(invitationLink)
     }
 
-    const copyLink = async () =>{
+    const copyLink = async () => {
         await navigator.clipboard.writeText(invitationLink)
         setConfirmationMessage(!confirmationMessage)
     }

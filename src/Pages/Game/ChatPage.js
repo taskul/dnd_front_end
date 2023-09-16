@@ -8,7 +8,10 @@ import AuthContext from "../../Context/AuthContext"
 import User from "../../API/api"
 import socketIO from "socket.io-client"
 
-const socket = socketIO.connect("http://localhost:3001")
+// const socket = socketIO.connect("http://localhost:3001")
+const socket = socketIO.connect("https://dnd-game.onrender.com")
+
+
 
 
 

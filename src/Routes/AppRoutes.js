@@ -18,6 +18,7 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
     return (
         <div>
             <Routes>
+
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/login" element={<Login authenticate={login} />} />
                 <Route exact path="/signup" element={<Signup signup={signup} />} />
@@ -86,7 +87,8 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                         </ProtectedRoutes>
                     } />
                 </Route>
-                <Route path='*' element={<NotFound />} />
+                <Route path='/404' element={<NotFound />} />
+                <Route path='*' element={<Navigate to="/404" replace />} />
             </Routes>
         </div>
     )
