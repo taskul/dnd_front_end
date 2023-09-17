@@ -1,5 +1,9 @@
 ![image of a dragon](public/dragon_resized.png)
 
+https://dnd-game.onrender.com/
+
+DND Den is a live chat based Dungeons and Dragons game that has features like live chat, bilding 2d maps to share in live chat for fun setting visualization, character bulider with avatar and character sheet, and dice rolling. Chat and dice rolling are saved in the database and can be accessed by game users at any time.
+
 # DND DEN - a live chat based dungeon and dragons game.
 
 # Getting Started with Create React App
