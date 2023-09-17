@@ -26,6 +26,7 @@ export default function MapCard({ id, name, deleteMap }) {
     return (
         <div className="component-card" >
             <p className="card-text">{name}</p>
+            <img src="/map_thumbnail.png" alt="map thumbnail" />
             <div className="card-btn-holder">
                 <button
                     className="component-card-btn edit-btn"
