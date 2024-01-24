@@ -1,13 +1,17 @@
 import "./Home.css"
 import "../User/Dashboard.css"
 import "../../GeneralComponents/TextStyles.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import LargeImg from "./LargeImg";
 
 export default function Home() {
     const [showLargeImg, setShowLargeImg] = useState(false);
     const [imgUrl, setImgUrl] = useState()
     const [imgAlt, setImgAlt] = useState()
+
+    useEffect(() => {
+        document.title = "DND DEN home page"
+     }, []);
 
     const openLargeImg = (url, alt) => {
         setImgUrl(url)

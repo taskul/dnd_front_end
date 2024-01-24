@@ -46,6 +46,12 @@ class User {
         return response.user.username;
     }
 
+    // get current user info
+    static async getCurrentUserInfo(username) {
+        let response = await this.request(`users/${username}`)
+        return response;
+    }
+
     // -------------------------Map CRUD APIs---------------------- 
 
     // API call for this comes from MapManager.js located in Pages/User/MapsDashboard

@@ -12,6 +12,7 @@ import MapManager from "../Pages/User/MapsDashboard/MapManager";
 import FriendsManager from "../Pages/User/FriendsDashboard/FriendsManager";
 import ChatPage from "../Pages/Game/ChatPage";
 import NotFound from "./NotFound";
+import Profile from "../Pages/User/Profile";
 
 export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapName, setMapName }) {
 
@@ -41,6 +42,14 @@ export default function AppRoutes({ login, signup, mapAssets, setMapAssets, mapN
                 <Route path="/chat/:chatId/:campaign_name" element={
                     <ProtectedRoutes redirectToPath="/login">
                         <ChatPage
+                        />
+                    </ProtectedRoutes>
+                } />
+
+                {/* User profil*/}
+                <Route path="/profile" element={
+                    <ProtectedRoutes redirectToPath="/login">
+                        <Profile
                         />
                     </ProtectedRoutes>
                 } />

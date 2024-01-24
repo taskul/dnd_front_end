@@ -12,6 +12,11 @@ export default function MapManager() {
     const { currentUser, token } = useContext(AuthContext)
 
     useEffect(() => {
+        document.title = "Map builder"
+     }, []);
+
+
+    useEffect(() => {
         async function getMaps() {
             User.token = token;
             const { response } = await User.getMap(currentUser)

@@ -25,6 +25,11 @@ export default function GuildsManager() {
     const [guilds, setGuilds] = useState([]);
     const { currentUser, token } = useContext(AuthContext)
 
+    useEffect(() => {
+        document.title = "Guilds manager page"
+     }, []);
+
+
     // displays existing guilds
     useEffect(() => {
         async function getGuildsInfo() {

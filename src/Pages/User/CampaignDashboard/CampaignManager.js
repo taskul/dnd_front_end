@@ -29,6 +29,10 @@ export default function CampaignManager() {
     const [addingPlayersCampaign, setAddingPlayersComapin] = useState();
     const [guildIdForCampaign, setGuildIdForCampaign] = useState();
 
+    useEffect(() => {
+        document.title = "Campaign manager page"
+     }, []);
+
 
     useEffect(() => {
         async function getGuildsInfo() {
@@ -51,12 +55,14 @@ export default function CampaignManager() {
         setShowNewCampaignModal(!showNewCampaignModal)
     }
 
-    const createCampaign = async (formData, guid_id) => {
+    const createCampaign = async (formData, guild_id) => {
         User.token = token;
-        const response = await User.createCampaign(formData, guid_id)
-        const { campaign_id, campaign_name } = response.newCampaign;
-        const newMember = await User.addCampaignMember(campaign_id, guid_id, currentUser, true)
-        setAddedCampaign(response)
+        if (guild_id) {
+            const response = await User.createCampaign(formData, guild_id)
+            const { campaign_id, campaign_name } = response.newCampaign;
+            const newMember = await User.addCampaignMember(campaign_id, guild_id, currentUser, true)
+            setAddedCampaign(response)
+        }
     }
 
     // adding Playsers

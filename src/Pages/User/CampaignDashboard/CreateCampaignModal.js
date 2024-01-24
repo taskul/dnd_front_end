@@ -52,6 +52,7 @@ export default function CreateCampaignModal({ closeModal, guilds, createCampaign
         },
         validate,
         onSubmit: values => {
+            try {
             let guildId = selectedGuild ? selectedGuild : selectDefaultValue;
             const response = createCampaign(values.campaignName, guildId)
             if (response) {
@@ -62,7 +63,10 @@ export default function CreateCampaignModal({ closeModal, guilds, createCampaign
                     response
                 ]))
             }
+        } catch (err) {
+            console.log(err)
         }
+    }
     });
 
     // handles the change in the select input field
@@ -81,7 +85,13 @@ export default function CreateCampaignModal({ closeModal, guilds, createCampaign
         <div className="form-container-modal">
 
             {/* Disply map saved message after it was saved */}
-            {entrySaved ?
+            {
+            guildOptions.length === 0 ?
+            <div className="form">
+                <h3 className="white-titles">You need to create a guild first before starting a campaign.</h3>
+            </div>
+            :
+            entrySaved ?
                 <div className="form">
                     {/* Exit button */}
                     <div className="exit-button-holder">

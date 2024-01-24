@@ -66,7 +66,7 @@ export default function SelectMap({ availableMaps, closeModal, gameMaps, room, s
                                         className="select-map-container"
                                         onClick={() => loadMap(map.data.map_id)}
                                     >
-                                        <img src="/map_thumbnail.png" />
+                                        <img src="/map_thumbnail.png" alt="map thumbnail" />
                                         {map.data.map_name}
                                     </button>
                                 )

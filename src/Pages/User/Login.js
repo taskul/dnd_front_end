@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import "../../GeneralComponents/Forms.css"
 import "../../GeneralComponents/Buttons.css"
+import { useEffect } from "react";
 
 
 
@@ -20,6 +21,10 @@ const validate = values => {
 
 export default function Login({ authenticate }) {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        document.title = "Login page"
+     }, []);
 
     /** formik for input validation
 

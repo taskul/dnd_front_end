@@ -8,14 +8,7 @@ import AuthContext from "../../Context/AuthContext"
 import User from "../../API/api"
 import socketIO from "socket.io-client"
 
-// const socket = socketIO.connect("http://localhost:3001")
 const socket = socketIO.connect("https://dnd-game.onrender.com")
-
-
-
-
-
-
 
 const ChatPage = () => {
     let { campaign_name, chatId } = useParams();
@@ -27,6 +20,9 @@ const ChatPage = () => {
     const [room, setRoom] = useState(`/${chatId}/${campaign_name}`);
     const [gameMaps, setGameMaps] = useState([]);
 
+    useEffect(() => {
+        document.title = "DND DEN game chat"
+     }, []);
 
     // uploading old messages
     useEffect(() => {

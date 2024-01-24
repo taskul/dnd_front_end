@@ -31,6 +31,11 @@ export default function CharacterManager() {
     // updating a change to avatar
     const [updatedAvatar, setUpdatedAvatar] = useState();
 
+    useEffect(() => {
+        document.title = "Character builder page"
+     }, []);
+
+
     // get a list of existing characters
     useEffect(() => {
         async function getCharacters() {
